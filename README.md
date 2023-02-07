@@ -1,4 +1,4 @@
-# project_solvo_form
+## project_solvo_form
 
 # XAMPP 
 Xampp is a cross-platform local web server that allows the creation and testing of web pages or other programming elements. 
@@ -20,3 +20,6 @@ Scalable
 Supports collaboration
 Branching is easier
 Distributed development
+
+# Method Used
+PHP $_POST is a PHP super global variable which is used to collect form data after submitting an HTML form with method="post". $_POST is also widely used to pass variables.
