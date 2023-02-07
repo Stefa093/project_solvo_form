@@ -1,7 +1,12 @@
+:root{
+    scroll-behavior: smooth;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background: blueviolet;
 }
 
 body {
@@ -18,5 +23,11 @@ input {
     flex-direction: column;
     justify-content: center;
     align-items: left;
+}
+
+.card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
