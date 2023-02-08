@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./styles.css">
     <title>Card</title>
 </head>
-<body class="text-bg-light p-3">
+<body class="p-3 d-flex justify-content-center align-items-center vw-100 vh-100">
     <?php
     $first_name = $_POST["first_name"];
     $last_name = $_POST["last_name"];
@@ -17,17 +17,17 @@
     $create_password = $_POST["create_password"];
     $confirm_password = $_POST["confirm_password"];
     ?>
-<main class = "card card-bod">
-    <h1 class="card-title"><?php echo "Hello $first_name $last_name! \r\n";?></h1>
-    <p class="card-text"><?php echo "Congratulations for being part of this application that is your #1 training to get started in the world of programming. 
-    Next we are going to display some variables that you should get from the previous view: \r\n";?> </p>
-    <p class="card-text"><?php echo "Your email is: $email \r\n";?></p>
-    <p class="card-text"><?php echo "Your phone is: $phone \r\n";?></p>
+<main class = "card card-bod shadow-lg p-3 mb-5 bg-body rounded w-75 p-3 h-50 d-inline-block row">
+    <h1 class="card-title fs-1 fw-bold"><?php echo "Hello $first_name $last_name!";?></h1>
+    <p class="card-text fs-6"><?php echo "Congratulations for being part of this application that is your #1 training to get started in the world of programming. 
+    Next we are going to display some variables that you should get from the previous view:";?> </p>
+    <p class="card-text fs-6"><?php echo "Your email is: ";?><p class="fw-bold"><?= $email; ?></p></p>
+    <p class="card-text fs-6"><?php echo "Your phone is: ";?> <p class="fw-bold"><?= $phone; ?></p></p>
 </main>
     <!-- <script>
         setTimeout(function() {
             window.location.replace("index.html")
-        },10000)
+        },15000)
     </script> -->
 </body>
 
