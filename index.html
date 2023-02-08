@@ -13,7 +13,7 @@
         <img src="./images/Image 1.png" alt="logo">
         <h1 class="fw-bold fs text-left text-dark">Let's Make it Happen!</h1>
     </section>
-    <section class="card card-body shadow-lg p-3 mb-5 bg-body rounded w-25 p-3 d-flex">
+    <section class="card card-body shadow-lg p-3 mb-5 bg-body rounded w-50 p-3 d-flex">
         <p class="card-subtitle mb-2 text-muted fw-bold text-black-50 text-end">Already have an account? <u>Sign in here</u></p>
         <h3 class="fw-bold">Create An Account</h3>
         <form action="form.php" method="post" class="row row-cols-2">
@@ -41,12 +41,14 @@
                 <label for="confirm_password" class="form-label">Confirm Password</label>
                 <input id="confirm_password" name="confirm_password" type="password" class="form-control" required>
             </div>
-            <div>
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" required>
-                <label class="form-check-label form-label" for="flexCheckChecked">Creating your account and you accepting <u><b>Terms & Conditions</b></u></label>
-            </div>
-            <div>
-                <input type="submit" value="Create Account" class="btn btn-dark btn ">
+            <div class="d-flex flex-column mb-3">
+                <div class="">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" required>
+                    <label class="" for="flexCheckChecked">Creating your account and you accepting <u><b>Terms & Conditions</b></u></label>
+                </div>
+                <div>
+                    <input type="submit" value="Create Account" class="btn btn-dark btn mt-3">
+                </div>
             </div>
         </form>
     </section>

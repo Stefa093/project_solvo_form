@@ -24,11 +24,11 @@
     <p class="card-text fs-6"><?php echo "Your email is: ";?><p class="fw-bold"><?= $email; ?></p></p>
     <p class="card-text fs-6"><?php echo "Your phone is: ";?> <p class="fw-bold"><?= $phone; ?></p></p>
 </main>
-    <!-- <script>
+    <script>
         setTimeout(function() {
             window.location.replace("index.html")
-        },15000)
-    </script> -->
+        },20000)
+    </script>
 </body>
 
 </html>
