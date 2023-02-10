@@ -18,19 +18,19 @@
     $confirm_password = $_POST["confirm_password"];
     ?>
 <main class = "card card-bod shadow-lg p-3 mb-5 bg-body rounded w-75 p-3 h-50 d-inline-block row">
-    <h1 class="card-title fs-1 fw-bold"><?php echo "Hello $first_name $last_name!";?></h1>
-    <p class="card-text fs-6"><?php echo "Congratulations for being part of this application that is your #1 training to get started in the world of programming. 
-    Next we are going to display some variables that you should get from the previous view:";?> </p>
-    <p class="card-text fs-6"><?php echo "Your email is: ";?><p class="fw-bold"><?= $email; ?></p></p>
-    <p class="card-text fs-6"><?php echo "Your phone is: ";?> <p class="fw-bold"><?= $phone; ?></p></p>
+    <h1 class="card-title fs-1 fw-bold">Hello <span class = "text-danger"><?=$first_name;?></span> <span class = "text-danger"><?=$last_name;?></span>!</h1>
+    <p class="card-text fs-6"> Congratulations for being part of this application that is your #1 training to get started in the world of programming. 
+    Next we are going to display some variables that you should get from the previous view:</p>
+    <p class="card-text fs-6">Your email is: <b class = "text-danger"><?= $email; ?></b></p>
+    <p class="card-text fs-6">Your phone is:  <b class = "text-danger"><?= $phone; ?></b></p>
 </main>
-    <script>
-        setTimeout(function() {
-            window.location.replace("index.html")
-        },20000)
-    </script>
+<script>
+    
+    // setTimeout(function() {
+    //     window.location.replace("index.html")
+    // },20000)
+</script>
 </body>
-
 </html>
 
 
