@@ -10,13 +10,22 @@
 </head>
 <body class="p-3 d-flex justify-content-center align-items-center vw-100 vh-100">
     <?php
+    include_once('db.php');
+
     $first_name = $_POST["first_name"];
     $last_name = $_POST["last_name"];
     $email = $_POST["email"];
     $phone = $_POST["phone"];
     $create_password = $_POST["create_password"];
     $confirm_password = $_POST["confirm_password"];
+
+    $connect_db = conn();
+    $sql = "INSERT INTO users (first_name, last_name, email, phone, create_password, confirm_password)
+    VALUES ('$first_name', '$last_name', '$email', '$phone', '$create_password', '$confirm_password')";
+    $result = mysqli_query($connect_db , $sql) or trigger_error("Query Failed! SQL- Error: ".mysqli_error($connect_db), E_USER_NOTICE);
+
     ?>
+
 <main class = "card card-bod shadow-lg p-3 mb-5 bg-body rounded w-75 p-3 h-50 d-inline-block row">
     <h1 class="card-title fs-1 fw-bold">Hello <span class = "text-danger"><?=$first_name;?></span> <span class = "text-danger"><?=$last_name;?></span>!</h1>
     <p class="card-text fs-6"> Congratulations for being part of this application that is your #1 training to get started in the world of programming. 
@@ -24,12 +33,6 @@
     <p class="card-text fs-6">Your email is: <b class = "text-danger"><?= $email; ?></b></p>
     <p class="card-text fs-6">Your phone is:  <b class = "text-danger"><?= $phone; ?></b></p>
 </main>
-<script>
-    
-    // setTimeout(function() {
-    //     window.location.replace("index.html")
-    // },20000)
-</script>
 </body>
 </html>
 
