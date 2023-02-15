@@ -1,3 +1,25 @@
+<?php
+    session_start();
+    
+    $text_confirmation = "";
+    if (isset ($_POST["submit"])) {
+        $first_name = $_POST["first_name"];
+        $last_name = $_POST["last_name"];
+        $email = $_POST["email"];
+        $phone = $_POST["phone"];
+        $create_password = $_POST["create_password"];
+        $confirm_password = $_POST["confirm_password"];
+
+        if ($create_password === $confirm_password) {
+            $text_confirmation = "Las contraseñas son iguales";
+            $_SESSION['form'] = $_POST;
+            header('Location: form.php');
+        } else {
+            $text_confirmation = "Las contraseñas no son iguales";
+        }
+    };    
+    ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +37,7 @@
     <section class="card card-body shadow-lg p-3 mb-5 bg-body rounded w-50 p-3 d-flex">
         <p class="card-subtitle mb-2 text-muted fw-bold text-black-50 text-end">Already have an account? <u>Sign in here</u></p>
         <h3 class="fw-bold">Create An Account</h3>
-        <form action="form.php" method="post" >
+        <form action="index.php" method="post" >
             <div class="row row-cols-2 mt-3">
                 <div class="form_info">
                     <label for="first_name" class="form-label">First Name</label>
@@ -31,7 +53,7 @@
                 </div>
                 <div class="form_info">
                     <label for="phone" class="form-label">Phone</label>
-                    <input id="phone" name="phone" type="number" class="form-control" required>
+                    <input id="phone" name="phone" type="text" class="form-control" required>
                 </div>
                 <div class="form_info">
                     <label for="create_password" class="form-label">Create Password</label>
@@ -41,17 +63,23 @@
                     <label for="confirm_password" class="form-label">Confirm Password</label>
                     <input id="confirm_password" name="confirm_password" type="password" class="form-control" required>
                 </div>
-            </div> 
+            </div>
+            <div>
+                <small>
+                    <?=$text_confirmation?>
+                </small>
+            </div>
             <div class="mt-4">
                 <div class="">
                     <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" required>
                     <label class="" for="flexCheckChecked">Creating your account and you accepting <b>Terms & Conditions</b></label>
                 </div>
                 <div>
-                    <input type="submit" value="Create Account" class="btn btn-dark btn mt-5">
+                    <input type="submit" value="Create Account" name="submit" class="btn btn-dark btn mt-5">
                 </div>
             </div>
         </form>
     </section>
+    
 </body>
 </html>

@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,18 +15,16 @@
     <?php
     include_once('db.php');
 
-    $first_name = $_POST["first_name"];
-    $last_name = $_POST["last_name"];
-    $email = $_POST["email"];
-    $phone = $_POST["phone"];
-    $create_password = $_POST["create_password"];
-    $confirm_password = $_POST["confirm_password"];
+    $first_name = $_SESSION["form"]["first_name"];
+    $last_name = $_SESSION["form"]["last_name"];
+    $email = $_SESSION["form"]["email"];
+    $phone = $_SESSION["form"]["phone"];
+    $create_password = $_SESSION["form"]["create_password"];
 
     $connect_db = conn();
-    $sql = "INSERT INTO users (first_name, last_name, email, phone, create_password, confirm_password)
-    VALUES ('$first_name', '$last_name', '$email', '$phone', '$create_password', '$confirm_password')";
+    $sql = "INSERT INTO users (first_name, last_name, email, phone, pass)
+    VALUES ('$first_name', '$last_name', '$email', '$phone', '$create_password')";
     $result = mysqli_query($connect_db , $sql) or trigger_error("Query Failed! SQL- Error: ".mysqli_error($connect_db), E_USER_NOTICE);
-
     ?>
 
 <main class = "card card-bod shadow-lg p-3 mb-5 bg-body rounded w-75 p-3 h-50 d-inline-block row">
