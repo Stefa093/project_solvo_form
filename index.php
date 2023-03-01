@@ -2,6 +2,7 @@
     session_start();
     
     $text_confirmation = "";
+    $name_confirmation = "";
     if (isset ($_POST["submit"])) {
         $first_name = $_POST["first_name"];
         $last_name = $_POST["last_name"];
@@ -16,6 +17,19 @@
             header('Location: form.php');
         } else {
             $text_confirmation = "Las contraseñas no son iguales";
+        }
+
+        function isValid($text){
+            $pattern = "/^[a-zA-Z\sñáéíóúÁÉÍÓÚ]{1,}$/";
+            return preg_match($pattern, $text);
+
+            if (isValid($first_name)) {
+                $name_confirmation = "Nombre correcto";
+                $_SESSION['form'] = $_POST;
+                header('Location: form.php');
+            } else {
+                $name_confirmation = "Nombre no debe tener numeros ni caracteres especiales";
+            }
         }
     };    
     ?>
@@ -42,10 +56,16 @@
                 <div class="form_info">
                     <label for="first_name" class="form-label">First Name</label>
                     <input id="first_name" name="first_name" type="text" class="form-control" required>
+                    <small>
+                    <?=$name_confirmation?>
+                    </small>
                 </div>
                 <div class="form_info">
                     <label for="last_name" class="form-label">Last Name</label>
                     <input id="last_name" name="last_name" type="text" class="form-control" required>
+                    <small>
+                    <?=$name_confirmation?>
+                    </small>
                 </div>
                 <div class="form_info">
                     <label for="email" class="form-label">Email</label>
