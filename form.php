@@ -29,10 +29,10 @@ session_start();
     $result = mysqli_query($connect_db , $sql) or trigger_error("Query Failed! SQL- Error: ".mysqli_error($connect_db), E_USER_NOTICE);
     
     //select * from -- request info from DB /// Validar
-    $sql_select = "SELECT * FROM users";
+    $sql_select = "SELECT * FROM users WHERE email = '". $email."'" ;
     $result_select = mysqli_query($connect_db, $sql_select);
 
-    $row = mysqli_fetch_assoc($result_select)     
+    $row = mysqli_fetch_assoc($result_select);
     ?>
     <main class = "card card-bod shadow-lg p-3 mb-5 bg-body rounded w-75 p-3 h-50 d-inline-block row">
         <h1 class="card-title fs-1 fw-bold">Hello <span class = "text-danger"><?=$row['first_name'];?></span> <span class = "text-danger"><?=$row['last_name'];?></span>!</h1>

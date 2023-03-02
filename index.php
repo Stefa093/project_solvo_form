@@ -3,6 +3,9 @@
     
     $text_confirmation = "";
     $name_confirmation = "";
+    $number_confirmation = "";
+    $last_confirmation = "";
+
     if (isset ($_POST["submit"])) {
         $first_name = $_POST["first_name"];
         $last_name = $_POST["last_name"];
@@ -17,20 +20,35 @@
             header('Location: form.php');
         } else {
             $text_confirmation = "Las contraseñas no son iguales";
-        }
+        };
 
-        function isValid($text){
-            $pattern = "/^[a-zA-Z\sñáéíóúÁÉÍÓÚ]{1,}$/";
-            return preg_match($pattern, $text);
+        if (ctype_alpha($first_name)) {
+            $name_confirmation = "El nombre es correcto";
+            $_SESSION['form'] = $_POST;
+            header('Location: form.php');
+        } else {    
+            $name_confirmation = "El nombre no es correcto";
+        };
 
-            if (isValid($first_name)) {
-                $name_confirmation = "Nombre correcto";
-                $_SESSION['form'] = $_POST;
-                header('Location: form.php');
-            } else {
-                $name_confirmation = "Nombre no debe tener numeros ni caracteres especiales";
-            }
-        }
+        if (ctype_alpha($last_name)) {
+            $last_confirmation = "El apellido es correcto";
+            $_SESSION['form'] = $_POST;
+            header('Location: form.php');
+        } else {    
+            $last_confirmation = "El apellido no es correcto";
+        };
+
+        if (is_numeric($phone)) {
+            $number_confirmation = "Telefono es correcto";
+            $_SESSION['form'] = $_POST;
+            header('Location: form.php');
+        } else {
+            $number_confirmation = "Telefono no es correcto";
+        };
+
+        // if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        //     $email_confirmation = "Formato invalido"
+        // };
     };    
     ?>
 
@@ -64,7 +82,7 @@
                     <label for="last_name" class="form-label">Last Name</label>
                     <input id="last_name" name="last_name" type="text" class="form-control" required>
                     <small>
-                    <?=$name_confirmation?>
+                    <?=$last_confirmation?>
                     </small>
                 </div>
                 <div class="form_info">
@@ -74,6 +92,9 @@
                 <div class="form_info">
                     <label for="phone" class="form-label">Phone</label>
                     <input id="phone" name="phone" type="text" class="form-control" required>
+                    <small>
+                    <?=$number_confirmation?>
+                    </small>
                 </div>
                 <div class="form_info">
                     <label for="create_password" class="form-label">Create Password</label>
